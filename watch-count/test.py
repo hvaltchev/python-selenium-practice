@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+from webdriver_manager.firefox import GeckoDriverManager
 
-driver = webdriver.Firefox()
+driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 driver.get("http://www.apple.com/shop/studio/apple-watch")
+
 driver.implicitly_wait(5) # seconds
 #Enter Get started button
 startbtn = driver.find_element_by_xpath("//html/body/div[2]/div[4]/div/div/div[3]/div[1]/div/div[1]/div/div/button/span")
